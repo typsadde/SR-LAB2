@@ -45,23 +45,6 @@ public class sort {
 		return -1;
 		
 	}
-
-	public static void pairWise() {
-		
-	}
-
-	public static void main(String[] args) {
-		Random rand = new Random();
-		int[] array = new int[10];
-		for (int i=0;i<array.length-1;i++) {
-			array[i] = rand.nextInt(100);
-		}
-		sortArray(array);
-		System.out.println("10 is on index: "+(membQuery(array, 10)+1));
-		System.out.println();
-		System.out.println("50 is on index: "+(membQuery(array, 50)+1));
-		System.out.println();
-		System.out.println("90 is on index: "+(membQuery(array, 90)+1));
-		//System.out.println(Arrays.toString(array));
-	}
 }
+
+

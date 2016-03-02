@@ -6,7 +6,7 @@ public class testFrameWork {
 		sort sortStuff = new sort();
 
 		Random rand = new Random();
-		int[] array = new int[10];
+		int[] array = new int[20];
 		for (int i=0;i<array.length-1;i++) {
 			array[i] = rand.nextInt(100);
 		}
@@ -18,5 +18,4 @@ public class testFrameWork {
 		System.out.println("90 is on index: "+(sortStuff.membQuery(array, 90)+1));
 		//System.out.println(Arrays.toString(array));
 	}
-
 }
