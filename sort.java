@@ -37,8 +37,6 @@ public class sort {
 				l = x+1;
 			}
 		}
-		System.out.println("Index is: "+x);
-		System.out.println("Value is: "+array[x]);
 
 		return -1;
 		
