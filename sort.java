@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Arrays;
 
 public class sort {
-	public static void sortArray(int[] arrayToSort) {
+	public void sortArray(int[] arrayToSort) {
 		int switches = 0;
 		int buffer = 0;
 		System.out.println(Arrays.toString(arrayToSort));
@@ -19,7 +19,7 @@ public class sort {
 		System.out.println(Arrays.toString(arrayToSort));
 	}
 
-	public static int membQuery(int[] array,int member) {
+	public int membQuery(int[] array,int member) {
 		int x=0,l,r;
 		l=1;
 		r = array.length;
@@ -40,11 +40,11 @@ public class sort {
 		}
 		System.out.println("Index is: "+x);
 		System.out.println("Value is: "+array[x]);
-		
-		
+
 		return -1;
 		
 	}
+
 }
 
 
