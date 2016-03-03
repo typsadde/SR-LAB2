@@ -12,7 +12,9 @@ public class testFrameWork {
 			array[i] = rand.nextInt(100);
 		}
 		sortStuff.sortArray(array);
-		System.out.println("Member is on index: "+(sortStuff.membQuery(array, rand.nextInt(100))+1));
+		int member = rand.nextInt(100);
+		System.out.println("Member is: "+member);
+		System.out.println("Member is on index: "+(sortStuff.membQuery(array,member)));
 				//System.out.println(Arrays.toString(array));
 	}
 
