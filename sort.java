@@ -3,7 +3,6 @@ import java.util.Arrays;
 
 public class sort {
 	public void sortArray(int[] arrayToSort) {
-		int switches = 0;
 		int buffer = 0;
 		System.out.println(Arrays.toString(arrayToSort));
 		for(int j=0;j<arrayToSort.length-1;j++) {
