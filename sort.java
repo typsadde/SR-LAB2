@@ -17,6 +17,7 @@ public class sort {
 		System.out.println(Arrays.toString(arrayToSort));
 	}
 
+	//@ requires i >= 0;
 	public int membQuery(int[] array,int member) {
 		int x = 0, l, r;
 		l = 1;
