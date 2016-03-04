@@ -18,7 +18,7 @@ public class sort {
 		System.out.println(Arrays.toString(arrayToSort));
 	}
 
-	//@ requires i >= 0;
+	// @ requires i >= 0;
 	public int membQuery(int[] array,int member) {
 		int x=0,l,r;
 		l=1;
@@ -28,9 +28,7 @@ public class sort {
 			if(member==array[x]) {
 				return x;
 			}
-		/*	System.out.println("x is: "+x);
-			System.out.println("l is: "+l);
-			System.out.println("r is: "+r);*/
+			
 			if(member<array[x]) {	
 				r = x-1;
 			}
@@ -39,10 +37,8 @@ public class sort {
 			}
 		}
 
-		return -1;
-		
+		return -1;	
 	}
-
 }
 
 

@@ -13,9 +13,7 @@ import java.io.FileInputStream;
 public class testFrameWork {
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
-				
-=======
+
 		String[] combArray = new String[194];
 		Path filePath = Paths.get("C:/Users/sayye/Downloads","jenny_output.txt");
 		int k = 0;
@@ -40,22 +38,6 @@ public class testFrameWork {
 		}
 		System.out.println(Arrays.toString(combArray));
 
-		/*try(InputStream in = Files.newInputStream(filePath)) {
-			while ((n = in.read()) != -1) {
-				if(n == 0) {
-					break;
-				}
-				if((char)n != ' ') {
-				//	System.out.println((char)n);
-					combArray[k] = (char)n;
-				//	System.out.println(combArray[k]);
-				}
-			}
-			System.out.println(Arrays.toString(combArray));
-		} catch (IOException e) {
-			System.err.println(e);
-		}*/
->>>>>>> master
 		sort sortStuff = new sort();
 		Random rand = new Random();
 		int[] array = new int[20];
@@ -63,11 +45,10 @@ public class testFrameWork {
 		for (int i=0;i<array.length-1;i++) {
 			array[i] = rand.nextInt(100);
 		}
-		/*for(double j=0.1;j<arrayLong.length-1;j++) {
-			arrayLong[j] = rand.nextInt(100);
-		}*/
+
+		
 		sortStuff.sortArray(array);	
-		//System.out.println(Arrays.toString(array));
+
 		int randommember = rand.nextInt(100);
 		System.out.println("Looking for member: " + randommember);
 		
