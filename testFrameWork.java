@@ -21,7 +21,7 @@ public class testFrameWork {
 		FileInputStream fis = null;
 
 		try{
-			fis = new FileInputStream("C:/Users/sayye/Downloads/jenny_output.txt");
+			fis = new FileInputStream("jenny_output.txt");
 			BufferedReader br = new BufferedReader(new InputStreamReader(fis)); 
 			String line;
 			while(((line=br.readLine())!=null) || k<194) {
@@ -32,10 +32,10 @@ public class testFrameWork {
 		} catch(Exception e){
 			e.printStackTrace();
 		}
-		for (int i=0;i<194;i++) {
-			System.out.println(i);
+		for (int i=0;i<combArray.length;i++) {
+			System.out.println(combArray[i]);
 		}
-		System.out.println(Arrays.toString(combArray));
+		//System.out.println(Arrays.toString(combArray));
 
 		/*try(InputStream in = Files.newInputStream(filePath)) {
 			while ((n = in.read()) != -1) {
