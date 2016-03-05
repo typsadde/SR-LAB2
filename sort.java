@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Arrays;
 
 public class sort {
@@ -9,7 +8,6 @@ public class sort {
 		for(int j=0;j<arrayToSort.length-1;j++) {
 			for(int i=0;i<arrayToSort.length-1;i++) {
 				if(arrayToSort[i]>arrayToSort[i+1]) {
-					
 					buffer = arrayToSort[i+1];
 					arrayToSort[i+1] = arrayToSort[i];
 					arrayToSort[i] = buffer;
@@ -21,32 +19,16 @@ public class sort {
 
 	// @ requires i >= 0;
 	public int membQuery(int[] array,int member) {
-//		int x = 0, l, r;
-//		l = 1;
-//		r = array.length;
-//		while(l < r) {
-//			x = (l + r)/2;
-//			if(member == array[x]) {
-//				return x;
-//			}
-//			
-//			if(member < array[x]) {	
-//				r = x - 1;
-//			} else {
-//				l = x + 1;
-//			}
-//		}
-//
-//		return -1;	
 		
-		int lo = 0;
-        int hi = array.length - 1;
-        while (lo <= hi) {
-        	int mid = lo + (hi - lo) / 2;
+		int left = 0;
+		int mid;
+        int right = array.length - 1;
+        while (left <= right) {
+        	mid = left + (right - left) / 2;
             if(member < array[mid]) {
-            	hi = mid - 1;
+            	right = mid - 1;
             } else if (member > array[mid]) {
-            	lo = mid + 1;
+            	left = mid + 1;
             } else {
             	return mid;
             }

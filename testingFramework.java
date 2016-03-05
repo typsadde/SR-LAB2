@@ -1,12 +1,8 @@
-import static org.junit.Assert.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Random;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -15,53 +11,49 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class randomtest extends TestCase {
+public class testingFramework extends TestCase {
 
 	private int[] numberarray;
+	private int key = -1;
+	
 	private static int[][] numbers;
 	private static int[] query;
+	
 	private static int MAX = 100;
-	private static int SIZE = 20;
+	private static final int ARRAYSIZE = 20;
+	private static final int SAMPLES = 20;
+	
+	private final static int ARRAYINDEX = 0;
+	private final static int KEYINDEX = 1;
 
-//	@Before
-//	public void setUp() throws Exception {
-//		numbers = new int[SIZE][SIZE];
-//		Random generator = new Random();
-//		for (int i = 0; i < numbers.length; i++) {
-//			for(int j = 0; j < numbers.length; j++) {
-//				numbers[i][j] = generator.nextInt(MAX);
-//			}
-//		}
-//	}
-
-	public randomtest(int[] li1) {
+	public testingFramework(int[] li1, int k) {
 		this.numberarray = li1;
+		this.key = k;
 	}
 
 	@Parameters
-	public static Collection<int[]> generateData()
+	public static Collection<Object[]> generateData()
 	{
-		// In this example, the parameter generator returns a List of
-		// arrays.  Each array has two elements: { datum, expected }.
-		// These data are hard-coded into the class, but they could be
-		// generated or loaded in any way you like.
-		
-		query = new int[SIZE];
-		numbers = new int[SIZE][SIZE];
+
+		query = new int[SAMPLES];
+		numbers = new int[SAMPLES][ARRAYSIZE];
 		Random generator = new Random();
-		for (int i = 0; i < numbers.length; i++) {
-			for(int j = 0; j < numbers.length; j++) {
+		
+		for (int i = 0; i < SAMPLES; i++) {
+			for(int j = 0; j < ARRAYSIZE; j++) {
 				numbers[i][j] = generator.nextInt(MAX);
 			}
 			query[i] = generator.nextInt(MAX);
 		}
-		
-		List<int[]> list = new ArrayList<int[]>();
-	    for (int[] array : numbers) {
-	        list.addAll(Arrays.asList(array));
+	    
+	    Object[][] data = new Object[SAMPLES][2];
+	    
+	    for(int i = 0; i < SAMPLES; i++) {
+	    	data[i][ARRAYINDEX] = numbers[i];
+	    	data[i][KEYINDEX] = query[i];
 	    }
-		
-		return list;
+	    
+	    return Arrays.asList(data);
 	}
 
 	@Test
@@ -76,7 +68,7 @@ public class randomtest extends TestCase {
 		System.out.println("Our sorting time " + elapsedTime);
 
 		if (!validateSorting(numberarray)) {
-			fail("Should not happen");
+			fail("Array not sorted correctly");
 		}
 		assertTrue(true);
 	}
@@ -84,8 +76,6 @@ public class randomtest extends TestCase {
 	
 	@Test
 	public void MemberTest() {
-
-		int key = 4;
 		
 		sort sorter = new sort();
 		int memberat = sorter.membQuery(numberarray, key);
@@ -95,7 +85,7 @@ public class randomtest extends TestCase {
 		System.out.println("Validatemember gives: " + validateMember(numberarray, key));
 
 		if (validateMember(numberarray, key) && memberat == -1) {
-			fail("Should not happen");
+			fail("Key is a member but is not found");
 		}
 		assertTrue(true);
 	}
