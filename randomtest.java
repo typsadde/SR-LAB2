@@ -19,6 +19,7 @@ public class randomtest extends TestCase {
 
 	private int[] numberarray;
 	private static int[][] numbers;
+	private static int[] query;
 	private static int MAX = 100;
 	private static int SIZE = 20;
 
@@ -45,12 +46,14 @@ public class randomtest extends TestCase {
 		// These data are hard-coded into the class, but they could be
 		// generated or loaded in any way you like.
 		
+		query = new int[SIZE];
 		numbers = new int[SIZE][SIZE];
 		Random generator = new Random();
 		for (int i = 0; i < numbers.length; i++) {
 			for(int j = 0; j < numbers.length; j++) {
 				numbers[i][j] = generator.nextInt(MAX);
 			}
+			query[i] = generator.nextInt(MAX);
 		}
 		
 		List<int[]> list = new ArrayList<int[]>();
@@ -72,37 +75,47 @@ public class randomtest extends TestCase {
 		long elapsedTime = stopTime - startTime;
 		System.out.println("Our sorting time " + elapsedTime);
 
-		if (!validate(numberarray)) {
+		if (!validateSorting(numberarray)) {
 			fail("Should not happen");
 		}
 		assertTrue(true);
 	}
 	
 	
-//	@Test
-//	public void MemberTest() {
-//		long startTime = System.currentTimeMillis();
-//
-//		sort sorter = new sort();
-//		sorter.sortArray(numberarray);
-//
-//		long stopTime = System.currentTimeMillis();
-//		long elapsedTime = stopTime - startTime;
-//		System.out.println("Our sorting time " + elapsedTime);
-//
-//		if (!validate(numberarray)) {
-//			fail("Should not happen");
-//		}
-//		assertTrue(true);
-//	}
+	@Test
+	public void MemberTest() {
+
+		int key = 4;
+		
+		sort sorter = new sort();
+		int memberat = sorter.membQuery(numberarray, key);
+		
+		System.out.println("Looking for key: " + key);
+		System.out.println("Memberat gives: " + memberat);
+		System.out.println("Validatemember gives: " + validateMember(numberarray, key));
+
+		if (validateMember(numberarray, key) && memberat == -1) {
+			fail("Should not happen");
+		}
+		assertTrue(true);
+	}
 
 
-	private boolean validate(int[] numbers) {
+	private boolean validateSorting(int[] numbers) {
 		for (int i = 0; i < numbers.length - 1; i++) {
 			if (numbers[i] > numbers[i + 1]) {
 				return false;
 			}
 		}
 		return true;
+	}
+	
+	private boolean validateMember(int[] numbers, int key) {
+		for(int i = 0; i < numbers.length - 1; i++) {
+			if(numbers[i] == key) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

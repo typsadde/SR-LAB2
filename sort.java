@@ -21,24 +21,37 @@ public class sort {
 
 	// @ requires i >= 0;
 	public int membQuery(int[] array,int member) {
-		int x=0,l,r;
-		l=1;
-		r = array.length;
-		while(l<r) {
-			x = (l+r)/2;
-			if(member==array[x]) {
-				return x;
-			}
-			
-			if(member<array[x]) {	
-				r = x-1;
-			}
-			else {
-				l = x+1;
-			}
-		}
-
-		return -1;	
+//		int x = 0, l, r;
+//		l = 1;
+//		r = array.length;
+//		while(l < r) {
+//			x = (l + r)/2;
+//			if(member == array[x]) {
+//				return x;
+//			}
+//			
+//			if(member < array[x]) {	
+//				r = x - 1;
+//			} else {
+//				l = x + 1;
+//			}
+//		}
+//
+//		return -1;	
+		
+		int lo = 0;
+        int hi = array.length - 1;
+        while (lo <= hi) {
+        	int mid = lo + (hi - lo) / 2;
+            if(member < array[mid]) {
+            	hi = mid - 1;
+            } else if (member > array[mid]) {
+            	lo = mid + 1;
+            } else {
+            	return mid;
+            }
+        }
+        return -1;
 	}
 }
 
